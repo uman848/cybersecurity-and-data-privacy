@@ -1,22 +1,22 @@
-# Logbook
+# Logbook – Cybersecurity and Data Privacy Spring 2026
+Author: Uman Basnet  
+GitHub Repo: https://github.com/uman848/cybersecurity-and-data-privacy/edit/main/logbook.md
 
-## Phase 1 – Booking System Security Testing
-**Date:** 2025‑12‑19  
-**Tester:** Uman Basnet  
+---
 
-### Activities
-- Set up Docker environment with Booking System and PostgreSQL.
-- Conducted manual testing of registration and login flows.
-- Ran OWASP ZAP baseline scan against http://localhost:8000.
-- Documented vulnerabilities in `test-report.md` and `zap_report_round1.md`.
+## Week 1
+### Date: 2026-01-25
+**Topic:** Course introduction, Git setup, and cybersecurity basics  
+**What I learned:**  
+- Understood course structure and assignment workflow  
+- Set up GitHub repository for submitting tasks  
+- Reviewed fundamental cybersecurity concepts (CIA triad, malware types, security tools)
 
-### Findings
-- SQL injection vulnerability in registration input.
-- Missing CSRF protection on forms.
-- Weak password policy accepted trivial values.
-- Security headers (CSP, HSTS, X‑Frame‑Options) not configured.
+**Tasks completed:**  
+- Created GitHub repository  
+- Created logbook following the required template  
+- Submitted repo link for assignment
 
-### Reflections
-- Environment setup was straightforward with Docker.
-- ZAP scan confirmed manual findings, reinforcing the importance of automated tools.
-- Next phase will focus on remediation and retesting.
+**Next steps:**  
+- Begin working on Week 2 exercises  
+- Continue adding entries to the logbook after each session
