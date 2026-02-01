@@ -21,7 +21,8 @@ GitHub Repo: https://github.com/uman848/cybersecurity-and-data-privacy/edit/main
 - Begin working on Week 2 exercises  
 - Continue adding entries to the logbook after each session
 
-  ✅ Completed Labs
+## Week 2
+   ✅ Completed Labs
 ## 🧪 SQL Injection
 1. SQL injection vulnerability in WHERE clause allowing retrieval of hidden data
 Reflection:  
@@ -31,7 +32,7 @@ I learned how attackers can change a SQL query by adding their own input. This a
 Reflection:  
 This lab taught me how SQL injection can break the login system. By adding a special input to the username, I could skip the password check and log in as the administrator. The difficult part was dealing with the CSRF token and matching the session. Once I understood that, the attack worked easily.
 
-🔐 Authentication
+ ##**Authentication**
 3. Username enumeration via different responses
 Reflection:  
 I learned that websites can accidentally reveal valid usernames if their error messages are different. By testing different usernames, I could see which ones existed. The challenge was noticing the small differences in the responses. This showed why login errors should always look the same.
@@ -40,7 +41,7 @@ I learned that websites can accidentally reveal valid usernames if their error m
 Reflection:  
 This lab showed how weak two‑factor authentication can be bypassed. By understanding how the 2FA step worked, I was able to skip it and log in. The hardest part was figuring out where the system failed. This taught me that 2FA must be implemented carefully to be secure.
 
-🛂 Access Control
+##**Access Control**
 5. Unprotected admin functionality
 Reflection:  
 I learned that some admin pages can be accessed without any checks. By going directly to the admin URL, I could use admin features without logging in. The challenge was finding the admin page. This showed why access control must always be checked on the server.
