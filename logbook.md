@@ -69,6 +69,6 @@ This lab taught me that even if an admin URL looks random, it still needs proper
 ---
 
 # 🔗 Link to my repository and logbook  
-Replace with your real link:
 
-https://github.com/yourusername/yourrepo/logbook.md
+
+https://github.com/uman848/cybersecurity-and-data-privacy/blob/main/logbook.md
