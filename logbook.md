@@ -32,7 +32,7 @@ I learned how attackers can change a SQL query by adding their own input. This a
 Reflection:  
 This lab taught me how SQL injection can break the login system. By adding a special input to the username, I could skip the password check and log in as the administrator. The difficult part was dealing with the CSRF token and matching the session. Once I understood that, the attack worked easily.
 
- ##**Authentication**
+ ##Authentication
 3. Username enumeration via different responses
 Reflection:  
 I learned that websites can accidentally reveal valid usernames if their error messages are different. By testing different usernames, I could see which ones existed. The challenge was noticing the small differences in the responses. This showed why login errors should always look the same.
