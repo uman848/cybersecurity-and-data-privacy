@@ -67,5 +67,9 @@ The registration page contains several high‑risk vulnerabilities, including pl
 | **F‑03** | 🟠 Medium | No HTTPS | Data sent over HTTP | Browser shows `http://localhost:8001` |
 | **F‑04** | 🟠 Medium | Missing security headers | CSP, X‑Frame‑Options, X‑Content‑Type‑Options missing | ZAP alerts |
 | **F‑05** | 🟠 Medium | No CSRF protection | Forms lack anti‑CSRF tokens | ZAP alert: Absence of Anti‑CSRF Tokens |
+   ## Screen shot
+   <img width="579" height="378" alt="Screenshot 2026-02-12 at 18 18 03" src="https://github.com/user-attachments/assets/ca775db5-abd0-4de3-90cf-ca5b3fef6523" /><img width="862" height="789" alt="Screenshot 2026-02-12 at 18 19 06" src="https://github.com/user-attachments/assets/678a4e84-02d1-464e-925c-58f8bf2392c0" />
+
+   
 
 
