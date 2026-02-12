@@ -68,7 +68,45 @@ This lab taught me that even if an admin URL looks random, it still needs proper
 
 ---
 
-# 🔗 Link to my repository and logbook  
+## Week 3 – Booking System Phase 1 (Penetration Testing)
+
+### Task Completed:
+- Set up Docker environment for Booking System Phase 1
+- Downloaded and ran official docker-compose.yml
+- Accessed the application via http://localhost:8001
+- Performed manual penetration testing on the registration page:
+  - Functional testing (valid input, empty fields, age rule)
+  - Input validation testing (long strings, special characters)
+  - SQL Injection attempts
+  - XSS attempts
+  - Error handling tests
+- Connected to PostgreSQL database using Docker
+  - Verified user data stored in `booking_users` table
+  - Identified plain-text password storage
+- Ran OWASP ZAP automated scan
+  - Spider + Active Scan
+  - Exported report as `zap_report_round1.md`
+- Created test report `test_report_uman_basnet.md`
+- Added both reports to GitHub under `BookingSystem-Phase1/`
+
+### Tools Used:
+- macOS Terminal
+- Docker Desktop
+- PostgreSQL (psql)
+- Chrome
+- OWASP ZAP 2.16.1
+- GitHub
+
+### Key Findings:
+- Passwords stored in plain text
+- Missing input validation (SQLi, XSS accepted)
+- No HTTPS
+- Missing security headers (CSP, X-Frame-Options, etc.)
+- No CSRF protection
 
 
-https://github.com/uman848/cybersecurity-and-data-privacy/blob/main/logbook.md
+
+### Notes:
+- System intentionally vulnerable for learning purposes
+- All testing limited to registration page as required
+
