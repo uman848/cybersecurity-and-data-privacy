@@ -77,17 +77,6 @@ All five major vulnerabilities remain unfixed.
 
 ---
 
-# 4️⃣ Evidence / Screenshots
+screenshot
+<img width="563" height="373" alt="Screenshot 2026-02-18 at 21 23 16" src="https://github.com/user-attachments/assets/55452ad9-c6d3-40b9-8fc0-5c8de82a0752" />
 
-### Database showing plain‑text password
-<img width="563" height="373" alt="Screenshot 2026-02-18 at 21 23 16" src="https://github.com/user-attachments/assets/e5870fd0-bbdc-41a1-ba52-672bf581e741" />
-
-### ZAP and browser evidence
-<img width="579" height="378" alt="Screenshot 2026-02-12 at 18 18 03" src="https://github.com/user-attachments/assets/ca775db5-abd0-4de3-90cf-ca5b3fef6523" />
-<img width="862" height="789" alt="Screenshot 2026-02-12 at 18 19 06" src="https://github.com/user-attachments/assets/678a4e84-02d1-464e-925c-58f8bf2392c0" />
-
----
-
-# 5️⃣ Conclusion
-The updated version of the Booking System did **not** implement any of the recommended fixes from Part 1.  
-All vulnerabilities remain present and require immediate attention.
