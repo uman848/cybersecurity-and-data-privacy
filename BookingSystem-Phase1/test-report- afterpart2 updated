@@ -1,0 +1,153 @@
+# 📘 Booking System – Phase 1  
+### Cybersecurity & Data Privacy – Testing Report  
+**Author:** *Uman Basnet*  
+
+---
+
+# 🧩 Overview  
+This repository contains my security testing work for **Phase 1** of the Booking System project.  
+The work is divided into:
+
+- **Part 1:** Initial testing of the vulnerable application  
+- **Part 2:** Re‑testing the updated version to verify fixes  
+
+Both parts include functionality testing, penetration testing, and OWASP ZAP scans.
+
+---
+
+# 🟦 Phase 1 – Part 1 Summary
+
+## 🎯 Purpose  
+Identify vulnerabilities and weaknesses in the registration page of the Booking System.
+
+---
+
+## 🔍 Scope of Testing
+
+### ✔ Included  
+- Registration page  
+- Form inputs  
+- Database storage  
+- HTTP communication  
+- OWASP ZAP Round 1  
+
+### ✖ Excluded  
+- Login  
+- Reservations  
+- Admin features  
+- Session management  
+
+**Testing Approach:** Gray‑box  
+**Environment:** macOS • Docker Desktop • PostgreSQL • Chrome • OWASP ZAP  
+**Date:** 11 Feb 2026  
+
+---
+
+## ⚠️ Executive Summary  
+The registration page contains several **high‑risk vulnerabilities**, including plain‑text password storage, missing validation, and missing security headers.
+
+**Overall Risk Level:** 🔴 **High**
+
+---
+
+## 🚨 Top 5 Immediate Actions (Part 1 Findings)
+
+| ID | Severity | Issue | Summary |
+|----|----------|--------|---------|
+| F‑01 | 🔴 High | Plain‑text password storage | Passwords stored without hashing |
+| F‑02 | 🔴 High | Missing input validation | SQLi, XSS, long inputs accepted |
+| F‑03 | 🟠 Medium | No HTTPS | All data sent over HTTP |
+| F‑04 | 🟠 Medium | Missing security headers | No CSP, X‑Frame‑Options, etc. |
+| F‑05 | 🟠 Medium | No CSRF protection | Forms lack anti‑CSRF tokens |
+
+---
+
+# 🟩 Phase 1 – Part 2 Summary
+
+## 🎯 Purpose  
+Re‑test the updated Booking System (Phase 1 → Part 2) to verify whether the vulnerabilities found in Part 1 were fixed.
+
+---
+
+## 🔍 Scope of Testing
+
+### ✔ Included  
+- Registration page  
+- Form inputs  
+- Database storage  
+- HTTP communication  
+- OWASP ZAP Round 2  
+
+### ✖ Excluded  
+- Admin features  
+- Reservations  
+- Session management  
+
+**Testing Approach:** Gray‑box  
+**Environment:** macOS • Docker Desktop • PostgreSQL • Chrome • OWASP ZAP  
+**Date:** 18 Feb 2026  
+
+---
+
+## ⚠️ Executive Summary  
+The updated application still contains all major vulnerabilities found in Part 1.  
+No security fixes were implemented.
+
+**Overall Fix Status:** ❌ **0 / 5 issues fixed**
+
+---
+
+## 🚨 Verification of Top 5 Findings (Part 2)
+
+| ID | Issue | Part 1 Status | Part 2 Fix Status |
+|----|--------|----------------|--------------------|
+| F‑01 | Plain‑text password storage | Found | ❌ Not Fixed |
+| F‑02 | Missing input validation (SQLi/XSS) | Found | ❌ Not Fixed |
+| F‑03 | No HTTPS | Found | ❌ Not Fixed |
+| F‑04 | Missing security headers | Found | ❌ Not Fixed |
+| F‑05 | No CSRF protection | Found | ❌ Not Fixed |
+
+---
+
+## 🧪 Evidence Summary (Part 2)
+
+### **F‑01: Plain‑text Passwords**
+- Query: `SELECT * FROM booking_users;`  
+- Result: Password still stored in readable form  
+
+### **F‑02: SQLi & XSS Still Accepted**
+- SQLi payload accepted: `' OR '1'='1`  
+- XSS payload accepted: `<script>alert(1)</script>`  
+
+### **F‑03: No HTTPS**
+- Application still runs on `http://localhost:8002`  
+
+### **F‑04: Missing Security Headers**
+- ZAP Round 2 flagged missing CSP, X‑Frame‑Options, X‑Content‑Type‑Options  
+
+### **F‑05: No CSRF Protection**
+- Forms still lack CSRF tokens  
+- ZAP Round 2 alert: “Absence of Anti‑CSRF Tokens”  
+
+---
+
+# 📁 Repository Contents
+
+```
+📦 BookingSystem-Phase1
+ ├── test_report_uman_basnet.md
+ ├── zap_report_round1.md
+ ├── zap_report_round2.md
+ ├── logbook.md
+ └── README.md
+```
+
+---
+
+# 📝 Logbook  
+See **logbook.md** for daily progress, notes, and timestamps.
+
+---
+
+# 🔗 Submission  
+This repository is submitted for **Phase 1 – Part 1 & Part 2** of the Cybersecurity and Data Privacy course.
