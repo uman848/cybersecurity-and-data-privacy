@@ -110,3 +110,23 @@ This lab taught me that even if an admin URL looks random, it still needs proper
 - System intentionally vulnerable for learning purposes
 - All testing limited to registration page as required
 
+  ## Tasks Completed in Part 2
+
+- Deployed the updated Booking System (Phase 1 → Part 2) using Docker  
+- Verified application accessibility at `http://localhost:8002`  
+- Re-tested the registration page functionality  
+- Performed SQL injection tests  
+- Performed XSS tests  
+- Checked for server-side input validation  
+- Inspected database entries in `booking_users`  
+- Verified passwords still stored in plain text  
+- Checked HTTP communication (confirmed no HTTPS)  
+- Reviewed response headers for missing security headers  
+- Verified absence of CSRF tokens in forms  
+- Ran OWASP ZAP Round 2 automated scan  
+- Compared ZAP Round 2 results with Round 1  
+- Documented all verification results  
+- Updated README with Part 2 summary  
+- Updated logbook and prepared repository for submission
+
+
