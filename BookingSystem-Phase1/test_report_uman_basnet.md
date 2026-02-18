@@ -1,30 +1,29 @@
-# 1️⃣ Introduction
+# 1️⃣ Phase 1 – Part 2
 
 ## Tester(s)
 - **Name:** Uman Basnet
 
 ## Purpose
-Identify vulnerabilities and weaknesses in the **registration page** of the Booking System (Phase 1).
+Re-test the updated Booking System (Phase 1 → Part 2) to verify whether the vulnerabilities identified in Part 1 were fixed.
 
 ## Scope
-- **Tested:** Registration page, form inputs, database storage, HTTP communication, OWASP ZAP scan  
+- **Tested:** Registration page, form inputs, database storage, HTTP communication, OWASP ZAP Round 2  
 - **Excluded:** Login, reservations, admin features, session management  
 
 ## Test Approach
 Gray‑box testing
 
 ## Test Environment & Dates
-- **Start:** *[11 feb 2026]* 
-- **End:** *[11 feb 2026]*  
+- **Date:** *18 Feb 2026*  
 - **Environment:**  
   - macOS  
   - Docker Desktop  
   - PostgreSQL (Docker)  
-  - Chrome 
-  - OWASP ZAP 2.16.1  
+  - Chrome  
+  - OWASP ZAP  
 
 ## Assumptions & Constraints
-- Only registration page tested  
+- Only registration page re-tested  
 - System intentionally vulnerable  
 - No HTTPS available  
 
@@ -33,45 +32,62 @@ Gray‑box testing
 # 2️⃣ Executive Summary
 
 ## Short Summary
-The registration page contains several high‑risk vulnerabilities, including plain‑text password storage, missing validation, and missing security headers.
+The updated application (Part 2) was tested to verify whether the issues from Part 1 were fixed.  
+All five major vulnerabilities remain unfixed.
 
-## Overall Risk Level
-🟥 **High**
+## Overall Fix Status
+🟥 **0 / 5 Issues Fixed**
 
-## Top 5 Immediate Actions
-1. Hash passwords (bcrypt/Argon2)  
-2. Add server‑side input validation  
-3. Enable HTTPS  
-4. Add security headers (CSP, X‑Frame‑Options, X‑Content‑Type‑Options)  
-5. Add CSRF protection  
-
----
-
-# 3️⃣ Severity Scale & Definitions
-
-| Severity | Description | Recommended Action |
-|---------|-------------|--------------------|
-| 🔴 High | Serious vulnerability | Fix immediately |
-| 🟠 Medium | Significant issue | Fix ASAP |
-| 🟡 Low | Minor weakness | Fix soon |
-| 🔵 Info | No direct risk | Fix in maintenance |
+## Findings Status Overview
+1. Plain‑text password storage → **Not Fixed**  
+2. Missing input validation (SQLi/XSS) → **Not Fixed**  
+3. No HTTPS → **Not Fixed**  
+4. Missing security headers → **Not Fixed**  
+5. No CSRF protection → **Not Fixed**  
 
 ---
 
-# 4️⃣ Findings
+# 3️⃣ Verification of Findings (Part 2)
 
-| ID | Severity | Finding | Description | Evidence / Proof |
-|----|----------|---------|-------------|------------------|
-| **F‑01** | 🔴 High | Plain‑text password storage | Passwords stored in cleartext in DB | `SELECT * FROM booking_users;` shows readable passwords |
-| **F‑02** | 🔴 High | Missing input validation | SQLi, XSS, long strings accepted | `' OR '1'='1`, `<script>alert(1)</script>` |
-| **F‑03** | 🟠 Medium | No HTTPS | Data sent over HTTP | Browser shows `http://localhost:8001` |
-| **F‑04** | 🟠 Medium | Missing security headers | CSP, X‑Frame‑Options, X‑Content‑Type‑Options missing | ZAP alerts |
-| **F‑05** | 🟠 Medium | No CSRF protection | Forms lack anti‑CSRF tokens | ZAP alert: Absence of Anti‑CSRF Tokens |
-   ## Screen shot
-   <img width="579" height="378" alt="Screenshot 2026-02-12 at 18 18 03" src="https://github.com/user-attachments/assets/ca775db5-abd0-4de3-90cf-ca5b3fef6523" /><img width="862" height="789" alt="Screenshot 2026-02-12 at 18 19 06" src="https://github.com/user-attachments/assets/678a4e84-02d1-464e-925c-58f8bf2392c0" />
-   
+## **F‑01: Plain‑text Password Storage**
+- **Status:** Not Fixed  
+- Passwords still stored in readable form in `booking_users` table  
+- Verified using:  
+  ```
+  SELECT * FROM booking_users;
+  ```
 
-   <img width="563" height="373" alt="Screenshot 2026-02-18 at 21 23 16" src="https://github.com/user-attachments/assets/e5870fd0-bbdc-41a1-ba52-672bf581e741" />
+## **F‑02: Missing Input Validation (SQLi/XSS)**
+- **Status:** Not Fixed  
+- SQL injection payloads still accepted  
+- XSS payloads still executed  
 
+## **F‑03: No HTTPS**
+- **Status:** Not Fixed  
+- Application still runs on `http://localhost:8002`  
 
+## **F‑04: Missing Security Headers**
+- **Status:** Not Fixed  
+- ZAP Round 2 shows missing CSP, X‑Frame‑Options, X‑Content‑Type‑Options  
 
+## **F‑05: No CSRF Protection**
+- **Status:** Not Fixed  
+- Forms still lack anti‑CSRF tokens  
+- ZAP Round 2 confirms absence of CSRF protection  
+
+---
+
+# 4️⃣ Evidence / Screenshots
+
+### Database showing plain‑text password
+<img width="563" height="373" alt="Screenshot 2026-02-18 at 21 23 16" src="https://github.com/user-attachments/assets/e5870fd0-bbdc-41a1-ba52-672bf581e741" />
+
+### ZAP and browser evidence
+<img width="579" height="378" alt="Screenshot 2026-02-12 at 18 18 03" src="https://github.com/user-attachments/assets/ca775db5-abd0-4de3-90cf-ca5b3fef6523" />
+<img width="862" height="789" alt="Screenshot 2026-02-12 at 18 19 06" src="https://github.com/user-attachments/assets/678a4e84-02d1-464e-925c-58f8bf2392c0" />
+
+---
+
+# 5️⃣ Conclusion
+The updated version of the Booking System did **not** implement any of the recommended fixes from Part 1.  
+All vulnerabilities remain present and require immediate attention.
