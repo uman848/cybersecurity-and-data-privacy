@@ -1,0 +1,513 @@
+\[2026-02-18-ZAP-Report-.html\](https://github.com/user-attachments/files/25399502/2026-02-18-ZAP-Report-.html)   ZAP by Checkmarx Scanning Report   
+
+ZAP by Checkmarx Scanning Report
+================================
+
+Generated with [![The ZAP logo](2026-02-18-ZAP-Report-/zap32x32.png)ZAP](https://zaproxy.org) on Wed 18 Feb 2026, at 22:11:00
+
+ZAP Version: 2.17.0
+
+ZAP by [Checkmarx](https://checkmarx.com/)
+
+Contents
+--------
+
+1.  [About This Report](#about-this-report)
+    1.  [Report Parameters](#report-parameters)
+*   [Summaries](#summaries)
+    1.  [Alert Counts by Risk and Confidence](#risk-confidence-counts)
+    2.  [Alert Counts by Site and Risk](#site-risk-counts)
+    3.  [Alert Counts by Alert Type](#alert-type-counts)
+*   [Alerts](#alerts)
+    1.  [Risk\=Medium, Confidence\=Low (1)](#alerts--risk-2-confidence-1)
+    2.  [Risk\=Informational, Confidence\=High (1)](#alerts--risk-0-confidence-3)
+*   [Appendix](#appendix)
+    1.  [Alert Types](#alert-types)
+
+About This Report
+-----------------
+
+### Report Parameters
+
+#### Contexts
+
+No contexts were selected, so all contexts were included by default.
+
+#### Sites
+
+The following sites were included:
+
+*   http://localhost:8003
+*   http://localhost:8002
+
+(If no sites were selected, all sites were included by default.)
+
+An included site must also be within one of the included contexts for its data to be included in the report.
+
+#### Risk levels
+
+Included: High, Medium, Low, Informational
+
+Excluded: None
+
+#### Confidence levels
+
+Included: User Confirmed, High, Medium, Low
+
+Excluded: User Confirmed, High, Medium, Low, False Positive
+
+Summaries
+---------
+
+### Alert Counts by Risk and Confidence
+
+This table shows the number of alerts for each level of risk and confidence included in the report.
+
+(The percentages in brackets represent the count as a percentage of the total number of alerts included in the report, rounded to one decimal place.)
+
+   
+
+Confidence
+
+User Confirmed
+
+High
+
+Medium
+
+Low
+
+Total
+
+Risk
+
+High
+
+0  
+(0.0%)
+
+0  
+(0.0%)
+
+0  
+(0.0%)
+
+0  
+(0.0%)
+
+0  
+(0.0%)
+
+Medium
+
+0  
+(0.0%)
+
+0  
+(0.0%)
+
+0  
+(0.0%)
+
+1  
+(50.0%)
+
+1  
+(50.0%)
+
+Low
+
+0  
+(0.0%)
+
+0  
+(0.0%)
+
+0  
+(0.0%)
+
+0  
+(0.0%)
+
+0  
+(0.0%)
+
+Informational
+
+0  
+(0.0%)
+
+1  
+(50.0%)
+
+0  
+(0.0%)
+
+0  
+(0.0%)
+
+1  
+(50.0%)
+
+Total
+
+0  
+(0.0%)
+
+1  
+(50.0%)
+
+0  
+(0.0%)
+
+1  
+(50.0%)
+
+2  
+(100%)
+
+### Alert Counts by Site and Risk
+
+This table shows, for each site for which one or more alerts were raised, the number of alerts raised at each risk level.
+
+Alerts with a confidence level of "False Positive" have been excluded from these counts.
+
+(The numbers in brackets are the number of alerts raised for the site at or above that risk level.)
+
+  
+
+Risk
+
+High  
+(= High)
+
+Medium  
+(>= Medium)
+
+Low  
+(>= Low)
+
+Informational  
+(>= Informational)
+
+Site
+
+http://localhost:8003
+
+0  
+(0)
+
+0  
+(0)
+
+0  
+(0)
+
+1  
+(1)
+
+http://localhost:8002
+
+0  
+(0)
+
+1  
+(1)
+
+0  
+(1)
+
+0  
+(1)
+
+### Alert Counts by Alert Type
+
+This table shows the number of alerts of each alert type, together with the alert type's risk level.
+
+(The percentages in brackets represent each count as a percentage, rounded to one decimal place, of the total number of alerts included in this report.)
+
+Alert type
+
+Risk
+
+Count
+
+[Absence of Anti-CSRF Tokens](#alert-type-0)
+
+Medium
+
+2  
+(100.0%)
+
+[Authentication Request Identified](#alert-type-1)
+
+Informational
+
+1  
+(50.0%)
+
+Total
+
+2
+
+Alerts
+------
+
+1.  ### Risk\=Medium, Confidence\=Low (1)
+    
+    1.  #### http://localhost:8002 (1)
+        
+        1.  ##### [Absence of Anti-CSRF Tokens](#alert-type-0) (1)
+            
+            1.  GET http://localhost:8002/register
+                
+                Alert tags
+                
+                *   [OWASP\_2021\_A01](https://owasp.org/Top10/A01_2021-Broken_Access_Control/)
+                *   POLICY\_QA\_STD =
+                *   POLICY\_PENTEST =
+                *   [SYSTEMIC](https://www.zaproxy.org/docs/desktop/addons/common-library/alerttags/#systemic)
+                *   [WSTG-v42-SESS-05](https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/06-Session_Management_Testing/05-Testing_for_Cross_Site_Request_Forgery)
+                *   [OWASP\_2017\_A05](https://owasp.org/www-project-top-ten/2017/A5_2017-Broken_Access_Control.html)
+                *   [CWE-352](https://cwe.mitre.org/data/definitions/352.html)
+                *   POLICY\_DEV\_STD =
+                
+                Alert description
+                
+                No Anti-CSRF tokens were found in a HTML submission form.
+                
+                A cross-site request forgery is an attack that involves forcing a victim to send an HTTP request to a target destination without their knowledge or intent in order to perform an action as the victim. The underlying cause is application functionality using predictable URL/form actions in a repeatable way. The nature of the attack is that CSRF exploits the trust that a web site has for a user. By contrast, cross-site scripting (XSS) exploits the trust that a user has for a web site. Like XSS, CSRF attacks are not necessarily cross-site, but they can be. Cross-site request forgery is also known as CSRF, XSRF, one-click attack, session riding, confused deputy, and sea surf.
+                
+                CSRF attacks are effective in a number of situations, including:
+                
+                \* The victim has an active session on the target site.
+                
+                \* The victim is authenticated via HTTP auth on the target site.
+                
+                \* The victim is on the same local network as the target site.
+                
+                CSRF has primarily been used to perform an action against a target site using the victim's privileges, but recent techniques have been discovered to disclose information by gaining access to the response. The risk of information disclosure is dramatically increased when the target site is vulnerable to XSS, because XSS can be used as a platform for CSRF, allowing the attack to operate within the bounds of the same-origin policy.
+                
+                Other info
+                
+                No known Anti-CSRF token \[anticsrf, CSRFToken, \_\_RequestVerificationToken, csrfmiddlewaretoken, authenticity\_token, OWASP\_CSRFTOKEN, anoncsrf, csrf\_token, \_csrf, \_csrfSecret, \_\_csrf\_magic, CSRF, \_token, \_csrf\_token, \_csrfToken\] was found in the following HTML form: \[Form 1: "birthdate" "password" "username" \].
+                
+                Request
+                
+                Request line and header section (270 bytes)
+                
+                    GET http://localhost:8002/register HTTP/1.1
+                    host: localhost:8002
+                    user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+                    pragma: no-cache
+                    cache-control: no-cache
+                    referer: http://localhost:8002/
+                
+                Request body (0 bytes)
+                
+                Response
+                
+                Status line and header section (325 bytes)
+                
+                    HTTP/1.1 200 OK
+                    content-type: text/html
+                    content-security-policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; frame-ancestors 'none'; form-action 'self';
+                    x-frame-options: DENY
+                    x-content-type-options: nosniff
+                    vary: Accept-Encoding
+                    content-length: 3026
+                    date: Wed, 18 Feb 2026 19:08:25 GMT
+                
+                Response body (3026 bytes)
+                
+                    <!DOCTYPE html>
+                    <html lang="en">
+                    
+                    <head>
+                        <meta charset="UTF-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <title>User Registration</title>
+                        <link href="/static/tailwind.css" rel="stylesheet"> <!-- Link to Tailwind CSS -->
+                    </head>
+                    
+                    <body class="flex flex-col min-h-screen bg-gray-100 text-gray-900">
+                      <main class="flex-grow">
+                        <div class="container mx-auto p-4">
+                            <div class="bg-white shadow-md rounded-lg p-6 mt-6 max-w-lg mx-auto">
+                                <h1 class="text-2xl font-bold mb-4 text-center">Register</h1>
+                                <form action="/register" method="POST">
+                                    <div class="mb-4">
+                                        <label for="username" class="block text-sm font-medium text-gray-700 font-bold">Email</label>
+                                        <input type="email" id="username" name="username" placeholder="Enter your email" required class="mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="password" class="block text-sm font-medium text-gray-700 font-bold">Password</label>
+                                        <input type="password" id="password" name="password" placeholder="Create a password" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="birthdate" class="block text-sm font-medium text-gray-700 font-bold">Birthdate</label>
+                                        <input type="date" id="birthdate" name="birthdate" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="role" class="block text-sm font-medium text-gray-700 font-bold">Role</label>
+                                        <select id="role" name="role" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                            <option value="reserver">Reserver</option>
+                                            <option value="administrator">Administrator</option>
+                                        </select>
+                                    </div>
+                                    <div class="flex justify-between space-x-4">
+                                        <button type="submit" class="inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 w-1/2">Register</button>
+                                        <a href="/" class="inline-block bg-gray-500 text-white py-2 px-4 rounded hover:bg-gray-600 w-1/2 text-center">Cancel</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                      </main>
+                      <div id="footer-placeholder"></div>
+                      <script src="/static/footer.js"></script>
+                    </body>
+                    
+                    </html>
+                
+                Evidence
+                
+                    <form action="/register" method="POST">
+                
+                Solution
+                
+                Phase: Architecture and Design
+                
+                Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.
+                
+                For example, use anti-CSRF packages such as the OWASP CSRFGuard.
+                
+                Phase: Implementation
+                
+                Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.
+                
+                Phase: Architecture and Design
+                
+                Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).
+                
+                Note that this can be bypassed using XSS.
+                
+                Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.
+                
+                Note that this can be bypassed using XSS.
+                
+                Use the ESAPI Session Management control.
+                
+                This control includes a component for CSRF.
+                
+                Do not use the GET method for any request that triggers a state change.
+                
+                Phase: Implementation
+                
+                Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.
+                
+2.  ### Risk\=Informational, Confidence\=High (1)
+    
+    1.  #### http://localhost:8003 (1)
+        
+        1.  ##### [Authentication Request Identified](#alert-type-1) (1)
+            
+            1.  POST http://localhost:8003/login
+                
+                Alert tags
+                
+                Alert description
+                
+                The given request has been identified as an authentication request. The 'Other Info' field contains a set of key=value lines which identify any relevant fields. If the request is in a context which has an Authentication Method set to "Auto-Detect" then this rule will change the authentication to match the request identified.
+                
+                Other info
+                
+                userParam=username
+                
+                userValue=foo-bar@example.com
+                
+                passwordParam=password
+                
+                referer=http://localhost:8003/login
+                
+                csrfToken=csrf\_token
+                
+                Request
+                
+                Request line and header section (342 bytes)
+                
+                    POST http://localhost:8003/login HTTP/1.1
+                    host: localhost:8003
+                    user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+                    pragma: no-cache
+                    cache-control: no-cache
+                    content-type: application/x-www-form-urlencoded
+                    referer: http://localhost:8003/login
+                    content-length: 77
+                
+                Request body (77 bytes)
+                
+                    csrf_token=%7B%7Bcsrf_token%7D%7D&username=foo-bar%40example.com&password=ZAP
+                
+                Response
+                
+                Status line and header section (442 bytes)
+                
+                    HTTP/1.1 303 See Other
+                    location: /status.html?status=failed&message=%3Cstrong%3EValidation%20Error(s)%3A%3C%2Fstrong%3E%3Cbr%3EInvalid%20email%20or%20password!
+                    content-security-policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; frame-ancestors 'none'; form-action 'self';
+                    x-frame-options: DENY
+                    x-content-type-options: nosniff
+                    vary: Accept-Encoding
+                    content-length: 0
+                    date: Wed, 18 Feb 2026 20:04:53 GMT
+                
+                Response body (0 bytes)
+                
+                Parameter
+                
+                    username
+                
+                Evidence
+                
+                    password
+                
+                Solution
+                
+                This is an informational alert rather than a vulnerability and so there is nothing to fix.
+                
+
+Appendix
+--------
+
+### Alert Types
+
+This section contains additional information on the types of alerts in the report.
+
+1.  #### Absence of Anti-CSRF Tokens
+    
+    Source
+    
+    raised by a passive scanner ([Absence of Anti-CSRF Tokens](https://www.zaproxy.org/docs/alerts/10202/))
+    
+    CWE ID
+    
+    [352](https://cwe.mitre.org/data/definitions/352.html)
+    
+    WASC ID
+    
+    9
+    
+    Reference
+    
+    1.  [https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site\_Request\_Forgery\_Prevention\_Cheat\_Sheet.html](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html)
+    2.  [https://cwe.mitre.org/data/definitions/352.html](https://cwe.mitre.org/data/definitions/352.html)
+    
+2.  #### Authentication Request Identified
+    
+    Source
+    
+    raised by a passive scanner ([Authentication Request Identified](https://www.zaproxy.org/docs/alerts/10111/))
+    
+    Reference
+    
+    1.  [https://www.zaproxy.org/docs/desktop/addons/authentication-helper/auth-req-id/](https://www.zaproxy.org/docs/desktop/addons/authentication-helper/auth-req-id/)
