@@ -1,147 +1,103 @@
-# 1️⃣ Phase 2 – Test Report
+# **Phase 2 – Test Report**#
 
-## Tester(s)
+## **Tester(s)** ##
 - **Name:** Uman Basnet
 
-## Purpose
-Evaluate the updated Booking System (Phase 2) and verify whether the vulnerabilities identified in Phase 1 have been fixed.
+## **Purpose**
+Re-test the updated Booking System (Phase 2) to verify whether the vulnerabilities identified in Phase 1 and Part 2 were fixed.
 
-## Scope
+## **Scope**
 - **Tested:** Login page, registration page (if enabled), database storage, HTTP communication, security headers, CSRF protection, OWASP ZAP Round 3  
-- **Excluded:** Admin panel, reservation system, session management  
+- **Excluded:** Admin features, reservation system, session management
 
-## Test Approach
-Gray‑box testing
+## **Test Approach**
+Gray-box testing
 
-## Test Environment & Dates
+## **Test Environment & Dates**
 - **Date:** *18 Feb 2026*  
-- **Environment:**  
+- **Environment:**
   - macOS  
   - Docker Desktop  
   - PostgreSQL (Docker)  
   - Chrome  
   - OWASP ZAP 2.16.1  
 
-## Assumptions & Constraints
-- Only Phase 2 application tested  
+## **Assumptions & Constraints**
+- Only Phase 2 application re-tested  
 - System intentionally vulnerable in earlier phases  
-- No HTTPS available  
+- HTTPS not implemented  
 
 ---
 
-# 2️⃣ Executive Summary
+# **2. Executive Summary**
 
-## Short Summary
-Phase 2 introduces several security improvements compared to Phase 1.  
-Most major vulnerabilities have been fixed, including password hashing, input validation, CSRF protection, and missing security headers.
+The updated application (Phase 2) was tested to verify whether the vulnerabilities from Phase 1 and Part 2 were fixed.  
+Most major issues have been fixed in this version.  
+The system shows significant improvement in security.
 
-## Overall Risk Level
-🟡 **Low**
-
-## Top Improvements
-1. Passwords now hashed  
-2. Input validation improved  
-3. Security headers added  
-4. CSRF token implemented  
-5. No SQLi or XSS detected  
+**Overall Fix Status:** Most issues fixed, except HTTPS.
 
 ---
 
-# 3️⃣ Severity Scale & Definitions
+# **3. Verification of Findings (Phase 2)**
 
-| Severity | Description | Recommended Action |
-|---------|-------------|--------------------|
-| 🔴 High | Serious vulnerability | Fix immediately |
-| 🟠 Medium | Significant issue | Fix ASAP |
-| 🟡 Low | Minor weakness | Fix soon |
-| 🔵 Info | No direct risk | Fix in maintenance |
+## **F-01: Plain-text Password Storage**
+- **Status:** Fixed  
+- Passwords are now stored as hashed values  
+- Verified by checking the `booking_users` table
 
----
+## **F-02: Missing Input Validation (SQLi/XSS)**
+- **Status:** Fixed  
+- SQL injection payloads rejected  
+- XSS payloads blocked
 
-# 4️⃣ Findings
+## **F-03: No HTTPS**
+- **Status:** Not Fixed  
+- Application still runs on HTTP (`http://localhost:8003`)
 
-| ID | Severity | Finding | Description | Evidence / Proof |
-|----|----------|---------|-------------|------------------|
-| **F‑01** | 🔵 Info | Passwords hashed | Passwords no longer stored in plaintext | DB screenshot |
-| **F‑02** | 🔵 Info | Improved input validation | SQLi & XSS payloads rejected | Manual testing |
-| **F‑03** | 🟠 Medium | No HTTPS | Application still uses HTTP | Browser shows `http://localhost:8003` |
-| **F‑04** | 🔵 Info | Security headers present | CSP, X‑Frame‑Options, X‑Content‑Type‑Options added | ZAP alerts |
-| **F‑05** | 🔵 Info | CSRF protection added | Login request includes CSRF token | ZAP alert: Authentication Request Identified |
+## **F-04: Missing Security Headers**
+- **Status:** Fixed  
+- ZAP Round 3 shows CSP, X-Frame-Options, and X-Content-Type-Options present
 
----
-
-# 5️⃣ Evidence / Screenshots
-
-### Database showing hashed passwords
-*(Insert your screenshot here)*
-
-### ZAP Round 3 evidence
-*(Insert your ZAP screenshots here)*
+## **F-05: No CSRF Protection**
+- **Status:** Fixed  
+- Login request includes CSRF token  
+- ZAP Round 3 confirms CSRF protection
 
 ---
 
-# 6️⃣ ZAP Round 3 Summary
+# **4. Evidence Summary (Phase 2)**
 
-## Scan Target
-`http://localhost:8003`
+- Database query shows hashed passwords  
+- SQLi and XSS payloads rejected  
+- Application accessed over HTTP  
+- ZAP Round 3 reports security headers present  
+- ZAP Round 3 confirms CSRF token in login request  
 
-## Results
-- No high‑risk vulnerabilities  
-- Authentication request identified (informational)  
-- Security headers present  
-- No SQLi, XSS, or CSRF issues detected  
+---
 
-## Comparison with Previous Rounds
+# **5. ZAP Round 3 Summary**
 
-| Scan | Result |
-|------|--------|
-| Round 1 | Multiple high‑risk issues |
+| **Scan Round** | **Result** |
+|----------------|------------|
+| Round 1 | Multiple high-risk issues |
 | Round 2 | Same issues remained |
-| **Round 3** | **Most issues fixed** |
+| Round 3 | Most issues fixed |
+
+ZAP Round 3 shows no high-risk vulnerabilities.
 
 ---
 
-# 7️⃣ Password Cracking (Phase 2 Requirement)
+# **6. Conclusion**
 
-*(Add your cracked passwords + screenshots here)*
+The updated version of the Booking System (Phase 2) has fixed most of the vulnerabilities identified in earlier phases.  
+Password hashing, input validation, CSRF protection, and security headers have been successfully implemented.
 
-For each cracked password, include:
+**Remaining Issue:**  
+- Application still uses HTTP instead of HTTPS.
 
-- User email  
-- Cracked password  
-- Method used  
-- Short explanation  
-- Screenshot  
+Overall, Phase 2 is significantly more secure and stable compared to Phase 1 and Part 2.
 
-**Example format:**
+screenshot prooff
 
-### User: darkknight@gothamwatch.org  
-- **Password:** batman123  
-- **Method:** Online hash lookup  
-- **Explanation:** Hash found in public breach database  
-- **Screenshot:** *(insert)*
-
----
-
-# 8️⃣ Conclusion
-
-Phase 2 of the Booking System shows major improvements compared to Phase 1:
-
-- Passwords are hashed  
-- Security headers implemented  
-- CSRF protection added  
-- Input validation improved  
-- No SQLi or XSS found  
-- ZAP Round 3 shows no high‑risk issues  
-
-**Remaining issue:**  
-- Application still runs on **HTTP**, not HTTPS
-
-Overall, Phase 2 is significantly more secure and stable.
-
----
-
-# 9️⃣ Logbook Update
-
-*(Add your Phase 2 logbook entries here)*
 
