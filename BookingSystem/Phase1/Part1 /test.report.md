@@ -78,5 +78,11 @@ The registration feature contain several critical weakness, including missing in
 
 **Purpose:**  
 - Attach or link your OWASP ZAP scan results (Markdown format preferred).
-- 
+- i have attached zap report in seperate file.
+
+  SCREENSHOT OF SQL injection
+
+  <img width="629" height="422" alt="Screenshot 2026-03-02 at 23 31 22" src="https://github.com/user-attachments/assets/c86c43ec-7108-4888-b30e-fba0c915e8b8" />
+
+  
 
